@@ -55,8 +55,15 @@ export default function Page() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text, from: author, to }),
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error ?? 'Translation failed');
+      const data = await res.json().catch(() => null);
+      if (!res.ok) {
+        throw new Error(
+          data?.error ??
+            (res.status === 429
+              ? 'Too many requests. Please wait a moment.'
+              : 'Translation failed'),
+        );
+      }
 
       setMessages((prev) => [
         ...prev,
