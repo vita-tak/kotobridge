@@ -1,0 +1,36 @@
+{
+  "name": "kotobridge",
+  "version": "0.1.0",
+  "description": "Real-time bilingual communication SDK with cultural context awareness",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "kotobridge": "dist/cli/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts"
+  },
+  "keywords": [
+    "translation",
+    "real-time",
+    "websocket",
+    "cultural-context",
+    "japanese"
+  ],
+  "author": "Isac Broman",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.131.0",
+    "openai": "^7.30.0"
+  }
+}
